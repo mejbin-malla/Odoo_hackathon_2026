@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+  
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* TransitOps Custom Theme Colors */
+  --color-accent-500: #5B5FEF;
+  --color-accent-400: #7B7FF5;
+  --color-accent-glow: rgba(91,95,239,0.35);
+  --color-status-success: #3DD68C;
+  --color-status-warning: #F5A623;
+  --color-status-info: #7A8CA6;
+  --color-status-error: #F04949;
+  --color-status-draft: #9A9CA3;
+  --color-status-alert: #F0703A;
+}
+
+:root {
+  --background: #FAFAFB;
+  --foreground: #0F1013;
+  --card: #FFFFFF;
+  --card-foreground: #0F1013;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F1013;
+  
+  --primary: #5B5FEF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4F4F5;
+  --secondary-foreground: #0F1013;
+  --muted: #F4F4F5;
+  --muted-foreground: #5B5D66;
+  --accent: #F4F4F5;
+  --accent-foreground: #0F1013;
+  
+  --destructive: #F04949;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #E7E7EA;
+  --input: #E7E7EA;
+  --ring: rgba(91,95,239,0.35);
+
+  --chart-1: #5B5FEF;
+  --chart-2: #3DD68C;
+  --chart-3: #F5A623;
+  --chart-4: #F04949;
+  --chart-5: #7A8CA6;
+  
+  --radius: 0.75rem; /* 12px */
+  
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F1013;
+  --sidebar-primary: #5B5FEF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F4F4F5;
+  --sidebar-accent-foreground: #0F1013;
+  --sidebar-border: #E7E7EA;
+  --sidebar-ring: rgba(91,95,239,0.35);
+}
+
+.dark {
+  --background: #08090A;
+  --foreground: #F5F5F6;
+  --card: #111214;
+  --card-foreground: #F5F5F6;
+  --popover: #18191C;
+  --popover-foreground: #F5F5F6;
+  
+  --primary: #5B5FEF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #18191C;
+  --secondary-foreground: #F5F5F6;
+  --muted: #202226;
+  --muted-foreground: #9A9CA3;
+  --accent: #202226;
+  --accent-foreground: #F5F5F6;
+  
+  --destructive: #F04949;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #26282C;
+  --input: #26282C;
+  --ring: rgba(91,95,239,0.35);
+
+  --chart-1: #5B5FEF;
+  --chart-2: #3DD68C;
+  --chart-3: #F5A623;
+  --chart-4: #F04949;
+  --chart-5: #7A8CA6;
+
+  --sidebar: #111214;
+  --sidebar-foreground: #F5F5F6;
+  --sidebar-primary: #5B5FEF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #202226;
+  --sidebar-accent-foreground: #F5F5F6;
+  --sidebar-border: #26282C;
+  --sidebar-ring: rgba(91,95,239,0.35);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  
+  /* Fix Chrome autofill background and text colors */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
+    -webkit-text-fill-color: var(--foreground) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
